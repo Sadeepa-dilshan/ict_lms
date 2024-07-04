@@ -51,17 +51,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/notes/{note}', [NoteController::class, 'show'])->name('notes.show');
     Route::get('/pastpapers/{pastPaper}', [PastPaperController::class, 'show'])->name('pastpapers.show');
 
-});
-
-Route::middleware('auth')->group(function () {
     Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
     Route::get('/past-papers', [StudentController::class, 'indexPastPapers']);
     Route::get('/past-papers/{pastPaper}', [StudentController::class, 'showPastPaper']);
-    Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
     Route::get('/video-lessons', [VideoLessonController::class, 'index'])->name('video-lessons.index');
     Route::get('/video-lessons/create', [VideoLessonController::class, 'create'])->name('video-lessons.create');
     Route::post('/video-lessons', [VideoLessonController::class, 'store'])->name('video-lessons.store');
 
 });
+
+// Route::middleware('auth')->group(function () {
+
+
+// });
 
 require __DIR__.'/auth.php';
